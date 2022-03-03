@@ -1,24 +1,26 @@
-const express = require('express')
-const connectDB = require('./config/db')
+const express = require("express")
+const connectDB = require("./config/db")
 
-const app = express();
+const app = express()
 
-connectDB();
+//Connect to database
+connectDB()
 
-app.get('/',(req,res) => {
-    res.send("WORKING");
+const port = process.env.PORT || 3000
+
+//Init Middleware
+app.use(express.json({extended: false}))
+
+app.get("/",(req,res)=>{
+    res.send("API running")
 })
 
-
-// Routes
-app.use('/api/users',require('./routes/api/user'))
-app.use('/api/auth',require('./routes/api/auth'))
-app.use('/api/profile',require('./routes/api/profile'))
-app.use('/api/posts',require('./routes/api/post'))
+app.use('/api/users', require('./routes/api/user.js'))
+app.use('/api/auth', require('./routes/api/auth.js'))
+app.use('/api/profile', require('./routes/api/profile.js'))
+app.use('/api/posts', require('./routes/api/post.js'))
 
 
-const port = process.env.process || 3000
-
-app.listen(port, () => {
-    console.log(`Server started on port ${port}`)
+app.listen(port,()=>{
+    console.log(`Server running on port ${port}`)
 })

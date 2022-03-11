@@ -1,6 +1,6 @@
 const express = require("express")
 const connectDB = require("./config/db")
-
+const cors = require('cors')
 const app = express()
 
 //Connect to database
@@ -10,6 +10,7 @@ const port = process.env.PORT || 3030
 
 //Init Middleware
 app.use(express.json({extended: false}))
+app.use(cors())
 
 app.get("/",(req,res)=>{
     res.send("API running")

@@ -6,7 +6,7 @@ import { REGISTER_SUCCESS, REGISTER_FAIL } from './types'
 export const register = ({ name, email, password}) => async dispatch => {
     // console.log({ name, email, password});
     const config = {
-        header: {
+        headers: {
             'Content-Type': 'application/json'
         }
     }
@@ -15,6 +15,7 @@ export const register = ({ name, email, password}) => async dispatch => {
     console.log(body);
     try {
         const res = await axios.post('http://localhost:3030/api/users',body,config)
+        console.log(res);
         dispatch({
             type: REGISTER_SUCCESS,
             payload: res.data

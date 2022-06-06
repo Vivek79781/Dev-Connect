@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 const ProfileItems = ({ profile: { user: { _id, name, avatar }, status, company, location, skills } }) => {
   return (
     <div className='profile bg-light'>
-        <img className='round-img' alt='' source={avatar}/>
+        <img className='round-img' alt='' src={avatar}/>
         <div>
             <h2>{name}</h2>
             <p> {status} {company && <span> at {company}</span>}</p>

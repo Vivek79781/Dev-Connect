@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Navigate } from 'react-router-dom'
+import {  Navigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
@@ -15,4 +15,4 @@ const mapStateToProps = state => ({
     auth: state.auth
 })
 
-export default connect(mapStateToProps,{})(PrivateRoute);
+export default connect(mapStateToProps)(PrivateRoute);

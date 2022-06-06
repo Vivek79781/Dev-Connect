@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 import { createProfile } from '../../actions/profile'
 import { useNavigate } from 'react-router-dom'
 
-const CreateProfile = ({ createProfile, useNavigate }) => {
+const CreateProfile = ({ createProfile }) => {
     const [formData, setFormData] = useState({
         company:'',
         website:'',
@@ -35,19 +35,20 @@ const CreateProfile = ({ createProfile, useNavigate }) => {
         instagram,
         linkedin
     } = formData;
+    
+    // const creatingProfile = useMatch('/create-profile');
 
     const [displaySocialInputs, toggleSocialInputs] = useState(false);
     
+    const navigate = useNavigate();
+
     const onChange = (e) => {
         setFormData({...formData, [e.target.name]: e.target.value})
     }
 
-    let navigate = useNavigate();
-
     const onSubmit = e => {
         e.preventDefault()
-        createProfile(formData)
-        navigate('/dashboard')
+        createProfile(formData,navigate)
     }
 
   return (
@@ -164,8 +165,7 @@ const CreateProfile = ({ createProfile, useNavigate }) => {
 
 CreateProfile.propTypes = {
     createProfile: PropTypes.func.isRequired,
-    useNavigate: PropTypes.func.isRequired
 }
 
 
-export default connect(null, { createProfile, useNavigate })(CreateProfile)
+export default connect(null, { createProfile })(CreateProfile)

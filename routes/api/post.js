@@ -200,7 +200,7 @@ async (req,res) => {
 })
 
 // @route       DELETE api/posts/comment/:id/:comment_id
-// @desc        Delete a Cpmment
+// @desc        Delete a Comment
 // @access      Private
 router.delete('/comment/:id/:comment_id', auth, async(req, res) => {
     try {

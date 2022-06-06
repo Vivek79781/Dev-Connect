@@ -1,0 +1,6 @@
+{
+    "mongoURI": "mongodb+srv://Vivek:Vivek@cluster0.qnqxi.mongodb.net/Connecting-Dev?retryWrites=true&w=majority",
+    "jwtSecret": "THIS IS A SECRET",
+    "githubClientId": "9d0b2b91162ac4b30733",
+    "githubSecret": "a3061799438d7021dd53669e22d030074e8b2d3f"
+}

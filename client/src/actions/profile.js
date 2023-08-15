@@ -88,7 +88,6 @@ export const createProfile = ( formData, navigate, edit = false ) => async dispa
         payload: res.data
     })
     dispatch(setAlert(edit ? 'Profile Updated' : 'Profile Created', 'success'))
-    console.log("res",res)
     if(!edit){
         navigate('/dashboard')
     }

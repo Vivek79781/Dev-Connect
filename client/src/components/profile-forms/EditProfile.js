@@ -22,7 +22,6 @@ const EditProfile = ({ profile: { profile, loading }, createProfile, getCurrentP
     })
     
     useEffect(() => {
-        console.log('loading', loading)
         if(loading){
           getCurrentProfile();
         }
